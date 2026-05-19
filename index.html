@@ -2,82 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Umami Tide Sushi</title>
-  <style>
-    body {
-      background-color: #fef8f5;
-      font-family: Arial, sans-serif;
-      text-align: center;
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind Config for Animations -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
     }
-    nav {
-      background-color: #ff6347;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 10px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    img {
-      border-radius: 8px;
-      margin: 10px;
-    }
-  </style>
+  </script>
 </head>
-<body>
-  <h1>Umami Tide Sushi</h1>
-  <nav>
-    <a href="#">Home</a> |
-    <a href="#about">About Us</a> |
-    <a href="#contact">Contact Us</a>
+<body class="bg-stone-50 font-sans text-slate-800 antialiased overflow-x-hidden">
+
+  <!-- Sticky Navigation -->
+  <nav class="sticky top-0 z-50 bg-orange-600 shadow-md">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-center gap-6">
+      <a href="#" class="text-white font-semibold hover:text-orange-200 transition-colors duration-300">Home</a>
+      <a href="#menu" class="text-white font-semibold hover:text-orange-200 transition-colors duration-300">Menu</a>
+      <a href="#about" class="text-white font-semibold hover:text-orange-200 transition-colors duration-300">About Us</a>
+      <a href="#contact" class="text-white font-semibold hover:text-orange-200 transition-colors duration-300">Contact</a>
+    </div>
   </nav>
-  <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1200&auto=format&fit=crop" alt="Sushi banner" width="100%">
-  <p>Welcome to our sushi house! Enjoy the freshness of Japan in every bite.</p>
 
-  <h2>Menu</h2>
-  <img src="https://images.unsplash.com/photo-1606899099793-d98cbaa4f3f6?q=80&w=800&auto=format&fit=crop" alt="Sashimi platter" width="300">
-  <img src="https://images.unsplash.com/photo-1562158070-622a2a7b37e3?q=80&w=800&auto=format&fit=crop" alt="Assorted sushi" width="300">
+  <!-- Hero Section (Animated Text) -->
+  <header class="relative bg-black h-80 flex items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1200&auto=format&fit=crop" 
+         alt="Sushi banner" 
+         class="absolute inset-0 w-full h-full object-cover opacity-60">
+    <div class="relative z-10 text-center text-white px-4 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s;">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Umami Tide Sushi</h1>
+      <p class="text-lg md:text-xl font-medium drop-shadow-md">Enjoy the freshness of Japan in every bite.</p>
+    </div>
+  </header>
 
-  <h3>Salmon Nigiri (2 pc)</h3>
-  <p>Hand-pressed rice topped with fresh salmon. <em>$5.50</em></p>
+  <!-- Main Content Container -->
+  <main class="max-w-5xl mx-auto px-4 py-12">
 
-  <h3>Dragon Roll</h3>
-  <p>Shrimp tempura roll with avocado and sweet eel sauce. <em>$12.00</em></p>
+    <!-- Menu Section -->
+    <section id="menu" class="mb-16 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s;">
+      <h2 class="text-3xl font-bold text-center mb-8 border-b-2 border-orange-200 pb-2 inline-block">Our Menu</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <!-- Menu Item 1: Salmon Nigiri -->
+        <!-- Added 'group' class to trigger child animations, and hover lift effects -->
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer">
+          <div class="overflow-hidden">
+            <!-- Image zooms in on card hover -->
+            <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=800&auto=format&fit=crop" alt="Salmon Nigiri" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-bold flex justify-between">Salmon Nigiri <span class="text-orange-600">$5.50</span></h3>
+            <p class="text-stone-500 mt-2 text-sm">Hand-pressed rice topped with fresh salmon. (2 pc)</p>
+          </div>
+        </div>
 
-  <h3>Tonkotsu Ramen</h3>
-  <p>Rich pork broth with noodles and chashu. <em>$13.50</em></p>
+        <!-- Menu Item 2: Dragon Roll (Fixed URL) -->
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=800&auto=format&fit=crop" alt="Dragon Roll" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-bold flex justify-between">Dragon Roll <span class="text-orange-600">$12.00</span></h3>
+            <p class="text-stone-500 mt-2 text-sm">Shrimp tempura roll with avocado and sweet eel sauce.</p>
+          </div>
+        </div>
 
-  <h2>Place Your Order</h2>
-  <form>
-    <label for="qty-salmon">Salmon Nigiri (2 pc):</label>
-    <input type="number" id="qty-salmon" name="qty-salmon" min="0"><br><br>
+        <!-- Menu Item 3: Tonkotsu Ramen (Fixed URL) -->
+        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop" alt="Tonkotsu Ramen" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl font-bold flex justify-between">Tonkotsu Ramen <span class="text-orange-600">$13.50</span></h3>
+            <p class="text-stone-500 mt-2 text-sm">Rich pork broth with noodles, soft-boiled egg, and chashu.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <label for="qty-dragon">Dragon Roll:</label>
-    <input type="number" id="qty-dragon" name="qty-dragon" min="0"><br><br>
+    <!-- Order Form Section -->
+    <section class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-stone-100 max-w-2xl mx-auto mb-16 opacity-0 animate-fade-in-up" style="animation-delay: 0.5s;">
+      <h2 class="text-2xl font-bold mb-6 text-center">Place Your Order</h2>
+      
+      <form class="space-y-6">
+        <!-- Quantity Inputs -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between group">
+            <label for="qty-salmon" class="font-medium group-hover:text-orange-600 transition-colors">Salmon Nigiri (2 pc)</label>
+            <input type="number" id="qty-salmon" name="qty-salmon" min="0" placeholder="0" class="w-20 border border-stone-300 rounded-md p-2 text-center focus:ring-2 focus:ring-orange-500 transition-all outline-none">
+          </div>
+          <div class="flex items-center justify-between group">
+            <label for="qty-dragon" class="font-medium group-hover:text-orange-600 transition-colors">Dragon Roll</label>
+            <input type="number" id="qty-dragon" name="qty-dragon" min="0" placeholder="0" class="w-20 border border-stone-300 rounded-md p-2 text-center focus:ring-2 focus:ring-orange-500 transition-all outline-none">
+          </div>
+          <div class="flex items-center justify-between group">
+            <label for="qty-ramen" class="font-medium group-hover:text-orange-600 transition-colors">Tonkotsu Ramen</label>
+            <input type="number" id="qty-ramen" name="qty-ramen" min="0" placeholder="0" class="w-20 border border-stone-300 rounded-md p-2 text-center focus:ring-2 focus:ring-orange-500 transition-all outline-none">
+          </div>
+        </div>
 
-    <label for="qty-ramen">Tonkotsu Ramen:</label>
-    <input type="number" id="qty-ramen" name="qty-ramen" min="0"><br><br>
+        <hr class="border-stone-200">
 
-    <p><strong>Add-ons:</strong></p>
-    <label><input type="checkbox" name="addon" value="miso"> Miso Soup (+$2.50)</label><br>
-    <label><input type="checkbox" name="addon" value="edamame"> Edamame (+$3.00)</label><br>
+        <!-- Add-ons -->
+        <div>
+          <p class="font-bold mb-3">Add-ons:</p>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer hover:text-orange-700 transition-colors">
+              <input type="checkbox" name="addon" value="miso" class="w-5 h-5 text-orange-600 focus:ring-orange-500 rounded border-stone-300 transition-shadow">
+              <span>Miso Soup (+$2.50)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-orange-700 transition-colors">
+              <input type="checkbox" name="addon" value="edamame" class="w-5 h-5 text-orange-600 focus:ring-orange-500 rounded border-stone-300 transition-shadow">
+              <span>Edamame (+$3.00)</span>
+            </label>
+          </div>
+        </div>
 
-    <p><strong>Utensils:</strong></p>
-    <label><input type="radio" name="utensils" value="chopsticks" checked> Chopsticks</label>
-    <label><input type="radio" name="utensils" value="none"> No utensils</label><br><br>
+        <!-- Utensils -->
+        <div>
+          <p class="font-bold mb-3">Utensils:</p>
+          <div class="flex gap-6">
+            <label class="flex items-center gap-2 cursor-pointer hover:text-orange-700 transition-colors">
+              <input type="radio" name="utensils" value="chopsticks" checked class="w-5 h-5 text-orange-600 focus:ring-orange-500 border-stone-300 transition-shadow">
+              <span>Chopsticks</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer hover:text-orange-700 transition-colors">
+              <input type="radio" name="utensils" value="none" class="w-5 h-5 text-orange-600 focus:ring-orange-500 border-stone-300 transition-shadow">
+              <span>No utensils</span>
+            </label>
+          </div>
+        </div>
 
-    <label for="requests">Special Requests:</label><br>
-    <textarea id="requests" name="requests" rows="4" cols="30"></textarea><br><br>
+        <!-- Special Requests -->
+        <div>
+          <label for="requests" class="font-bold block mb-2">Special Requests:</label>
+          <textarea id="requests" name="requests" rows="3" placeholder="Any allergies or preferences?" class="w-full border border-stone-300 rounded-md p-3 focus:ring-2 focus:ring-orange-500 transition-shadow outline-none resize-none"></textarea>
+        </div>
 
-    <input type="submit" value="Go To Checkout">
-  </form>
+        <!-- Submit Button (Animated scale on hover/active) -->
+        <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg shadow-md transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+          Go To Checkout
+        </button>
+      </form>
+    </section>
 
-  <h2 id="about">About Us</h2>
-  <p>Umami Tide Sushi brings traditional Japanese flavors with a modern twist. Our chefs use only the freshest ingredients to craft every piece.</p>
+    <!-- Info Sections -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left opacity-0 animate-fade-in-up" style="animation-delay: 0.7s;">
+      <div id="about" class="bg-orange-50 p-8 rounded-2xl hover:shadow-md transition-shadow duration-300">
+        <h2 class="text-2xl font-bold mb-4 text-orange-800">About Us</h2>
+        <p class="text-stone-700 leading-relaxed">Umami Tide Sushi brings traditional Japanese flavors with a modern twist. Our chefs use only the freshest ingredients to craft every piece, ensuring a premium dining experience whether you eat in or take out.</p>
+      </div>
 
-  <h2 id="contact">Contact Us</h2>
-  <p>Email: info@umamitide.com | Phone: (
+      <div id="contact" class="bg-stone-100 p-8 rounded-2xl hover:shadow-md transition-shadow duration-300">
+        <h2 class="text-2xl font-bold mb-4 text-stone-800">Contact Us</h2>
+        <p class="text-stone-700 leading-relaxed mb-2"><strong>Email:</strong> info@umamitide.com</p>
+        <p class="text-stone-700 leading-relaxed"><strong>Phone:</strong> (555) 123-4567</p>
+        <p class="text-stone-700 leading-relaxed mt-4 text-sm">123 Ocean View Lane<br>Seattle, WA 98101</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 text-center py-6 mt-8">
+    <p>&copy; 2026 Umami Tide Sushi. Made by Kent Ng.</p>
+  </footer>
+
+</body>
+</html>
