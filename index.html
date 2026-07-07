@@ -7,25 +7,9 @@
   
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Custom Tailwind Config for Animations -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <script src="assets/js/tailwind-config.js"></script>
 </head>
 <body class="bg-stone-50 font-sans text-slate-800 antialiased overflow-x-hidden">
 
@@ -57,42 +41,8 @@
     <section id="menu" class="mb-16 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s;">
       <h2 class="text-3xl font-bold text-center mb-8 border-b-2 border-orange-200 pb-2 inline-block">Our Menu</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <!-- Menu Item 1: Salmon Nigiri -->
-        <!-- Added 'group' class to trigger child animations, and hover lift effects -->
-        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer">
-          <div class="overflow-hidden">
-            <!-- Image zooms in on card hover -->
-            <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=800&auto=format&fit=crop" alt="Salmon Nigiri" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold flex justify-between">Salmon Nigiri <span class="text-orange-600">$5.50</span></h3>
-            <p class="text-stone-500 mt-2 text-sm">Hand-pressed rice topped with fresh salmon. (2 pc)</p>
-          </div>
-        </div>
-
-        <!-- Menu Item 2: Dragon Roll (Fixed URL) -->
-        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer">
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=800&auto=format&fit=crop" alt="Dragon Roll" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold flex justify-between">Dragon Roll <span class="text-orange-600">$12.00</span></h3>
-            <p class="text-stone-500 mt-2 text-sm">Shrimp tempura roll with avocado and sweet eel sauce.</p>
-          </div>
-        </div>
-
-        <!-- Menu Item 3: Tonkotsu Ramen (Fixed URL) -->
-        <div class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden border border-stone-100 cursor-pointer">
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800&auto=format&fit=crop" alt="Tonkotsu Ramen" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl font-bold flex justify-between">Tonkotsu Ramen <span class="text-orange-600">$13.50</span></h3>
-            <p class="text-stone-500 mt-2 text-sm">Rich pork broth with noodles, soft-boiled egg, and chashu.</p>
-          </div>
-        </div>
-      </div>
+      <!-- Cards are rendered from assets/js/menu-data.js by assets/js/menu.js -->
+      <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6"></div>
     </section>
 
     <!-- Order Form Section -->
@@ -182,5 +132,7 @@
     <p>&copy; 2026 Umami Tide Sushi. Made by Kent Ng.</p>
   </footer>
 
+  <script src="assets/js/menu-data.js"></script>
+  <script src="assets/js/menu.js"></script>
 </body>
 </html>

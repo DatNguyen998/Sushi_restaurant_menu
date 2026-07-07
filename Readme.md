@@ -9,6 +9,20 @@ My name is **Kent (Nguyen Thanh Dat)**. I’m a Business Analyst who enjoys spen
 
 ---
 
+### 🗂️ Project Structure
+```
+Sushi_restaurant_menu/
+├── index.html                 # Page shell (nav, hero, order form, about/contact)
+└── assets/
+    └── js/
+        ├── tailwind-config.js # Tailwind theme/animation config
+        ├── menu-data.js       # Menu items (name, price, description, image)
+        └── menu.js            # Renders menu cards from menu-data.js into the page
+```
+The menu used to be three copy-pasted `<div>` blocks inside `index.html`. Now the menu items live as data in `menu-data.js`, and `menu.js` builds the cards from that list — adding a dish just means adding one entry, no HTML editing required.
+
+---
+
 ### 🛠️ What I Used
 For this specific project, I focused on the basics to ensure I truly understood the building blocks of the web:
 
